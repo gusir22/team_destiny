@@ -1,0 +1,3 @@
+{% for profile in profiles %}
+    <a href="{% url 'profile_page' profile.pk %}">{{profile.user.get_full_name}}</a>
+{% endfor %}

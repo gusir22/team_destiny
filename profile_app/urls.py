@@ -2,10 +2,12 @@
 from django.urls import path
 
 from .views import (
-    ProfilePageView,
+    ProfilePageDetailView,
+    ProfilePageListView,
 )
 
 
 urlpatterns = [
-    path('<int:pk>/', ProfilePageView.as_view(), name='profile_page'),
+    path('', ProfilePageListView.as_view(), name='profile_list'),
+    path('<int:pk>/', ProfilePageDetailView.as_view(), name='profile_page'),
 ]
