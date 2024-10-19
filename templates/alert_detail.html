@@ -1,13 +1,40 @@
 <!-- templates/home.html -->
 {% extends '_base.html' %}
 {% load static %}
+{% load user_tags %}
 
 {% block title %}{{ alert.title }}{% endblock title %}
 
 {% block content %}
     <h1>{{ alert.title }}</h1>
-    <p>Created On: {{ alert.created }}
+    <p>Last Updated:
     {% if alert.modified != alert.created %}
-        <p>Updated On: {{ alert.modified }}
+        {{ alert.modified }}
+    {% else %}
+        {{ alert.created }}
     {% endif %}
+    </p>
+    <p>Alert Status: {{ alert.get_status_display }}
+
+    <p>Author: {{ alert.author.username }}</p>
+
+    <p>Affected Zip Codes</p>
+    <ul>
+    {% for zip in alert.affected_zip_code.all %}
+        <li>{{zip}}</li>
+    {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        {% if user|in_group:"Responder"%}
+            <a href="{% url 'alert_update_create' alert.pk %}">Create Alert Update</a>
+        {% endif %}
+    {% endif %}
+
+    {% for update in alert.alert_updates.all %}
+        <p>{{ update.description }}</p>
+        <p>Updated on: {{ update.created }}</p>
+    {% endfor%}
+
+
 {% endblock content %}

@@ -1,0 +1,19 @@
+<!-- templates/alert_update_create.html -->
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Create Alert Update{% endblock title %}
+
+{% block content %}
+    <h1>Create Alert Update</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form fields -->
+        
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'home' %}">Cancel</a>  <!-- Link to go back to the alert list -->
+{% endblock content %}
+    
+

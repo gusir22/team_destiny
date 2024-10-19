@@ -1,11 +1,16 @@
 <!-- templates/home.html -->
 {% extends '_base.html' %}
 {% load static %}
+{% load user_tags %}
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1>Official Updates</h1>
+    {% if user.is_authenticated %}
+        <h1>Official Updates for {{user.zip_code}} Zip Code</h1>
+    {% else %}
+        <h1>Official Updates</h1>
+    {% endif %}
     <div class="updates">
         {% for alert in alerts %}
             <div class="update">
@@ -15,6 +20,11 @@
             </div>
         {% endfor %}
     </div>
+    {% if user.is_authenticated %}
+        {% if user|in_group:"Responder"%}
+            <a href="{% url 'alert_create' %}">Create Alert</a>
+        {% endif %}
+    {% endif %}
 {% endblock content %}
     
 
