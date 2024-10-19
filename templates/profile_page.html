@@ -1,2 +1,30 @@
-{{ profile.user.get_full_name}}
-Evacuation Status = {{ profile.evacuation_status}}
+<!-- templates/profile_page.html -->
+{% extends '_base.html' %}
+{% load static %}
+{% load user_tags %}
+
+{% block title %}{{ profile.user.get_full_name}}{% endblock title %}
+
+{% block content %}
+
+
+
+    <h1>{{ profile.user.get_full_name}}</h1>
+    <p>Evacuation Status = {{ profile.evacuation_status}}</p>
+
+    <h2>Companions with {{user.get_full_name}}</h2>
+    {% if profile.companion_list.all %}
+        {% for companion in profile.companion_list.all %}
+            <li>{{ companion }} - {{ companion.get_relationship_type_display }}</li>
+        {% endfor %}
+    {% else %}
+        <li>There is no one else here</li>
+    {% endif %}
+
+    {% if user == profile.user %}
+        <a href="{% url 'companion_create' profile.id %}">Add Companion</a>
+    {% else %}
+        Not My Profile
+    {% endif %}
+
+{% endblock content %}
