@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'profile_app.apps.ProfileAppConfig',
+    'alerts.apps.AlertsConfig',
 ]
 
 MIDDLEWARE = [

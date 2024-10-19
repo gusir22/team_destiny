@@ -15,6 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
             'city',
             'zip_code',
             'phone_number',
+            'profile_photo',
         )
 
 
@@ -30,4 +31,5 @@ class CustomUserChangeForm(UserChangeForm):
             'city',
             'zip_code',
             'phone_number',
+            'profile_photo',
         )
