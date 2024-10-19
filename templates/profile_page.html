@@ -6,11 +6,47 @@
 {% block title %}{{ profile.user.get_full_name}}{% endblock title %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static 'css/profile_page.css' %}">
 
-
-
+    <!-- User Full Name -->
     <h1>{{ profile.user.get_full_name}}</h1>
-    <p>Evacuation Status = {{ profile.evacuation_status}}</p>
+    <div class="profile_data_li">
+        {% if profile.evacuation_status %}
+            <img src="{% static 'svgs/status_evacuated.svg' %}" alt="Evacuation Status">
+        {% else %}
+            <img src="{% static 'svgs/status_not_evacuated.svg' %}" alt="Evacuation Status">
+        {% endif %}
+        <p>Evacuation Status = {{ profile.evacuation_status}}</p>
+    </div>
+
+    <!-- Address -->
+    <div class="profile_data_li">
+        <img src="{% static 'svgs/address.svg' %}" alt="Address">
+        <p>Address: {{profile.user.formal_address}}</p>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="profile_data_li">
+        <img src="{% static 'svgs/phone.svg' %}" alt="Phone Number">
+        <p>Phone Number: {{profile.user.phone_number}}</p>
+    </div>
+
+    <!-- Email -->
+    <div class="profile_data_li">
+        <img src="{% static 'svgs/email.svg' %}" alt="Email">
+        <p>Email: <a href=''>{{profile.user.email}}</a></p>
+    </div>
+
+    <!-- Companions -->
+    <div class="profile_data_li">
+        <img src="{% static 'svgs/companions.svg' %}" alt="Companions">
+        <p>Is anybody else with you?</p>
+            <input type="radio" id="yes" name="companion" value="True" {% if profile.companion_list.all %}checked{% endif %} disabled>
+            <label for="companion">Yes</label><br>
+            <input type="radio" id="no" name="companion" value="False" {% if profile.companion_list.all %}checked{% endif %} disabled>
+            <label for="companion">No</label><br>
+    </div>
+    
     {% if user == profile.user %}
         <a href="{% url 'profile_edit' profile.id %}">Edit Status</a>
     {% endif %}
