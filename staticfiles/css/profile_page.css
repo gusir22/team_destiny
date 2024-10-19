@@ -1,0 +1,5 @@
+.profile_data_li {
+    font-size: 1.1rem;
+    display: flex;
+    gap: .5rem;
+}
