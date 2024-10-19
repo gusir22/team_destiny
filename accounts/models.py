@@ -18,5 +18,10 @@ class CustomUser(AbstractUser):
     
     profile_photo = models.ImageField(upload_to='profile_photos/')
     
+    
+    
     def formal_address(self):
         return f"{self.street_address}, {self.city}, Florida {self.zip_code}"
+    
+    def __str__(self) -> str:
+        return self.get_full_name()

@@ -16,6 +16,9 @@
         <p>{{user.city}}</p>
         <p>{{user.zip_code}}</p>
         <p>{{user.phone_number}}</p>
+        {% for profile in user.profile_page.all %}
+            <a href="{% url 'profile_page' profile.pk %}">Profile</a>
+        {% endfor %}
         <img src={{user.profile_photo.url}}>
     {% else %}
         <p>You are not logged in</p>
