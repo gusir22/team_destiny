@@ -5,22 +5,27 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <br />
-    <br />
-    <br />
-    <h1>Home Page</h1>
-    {% if user.is_authenticated %}
-        <p>Hi {{ user.email }}!</p>
-        <p>{{user.formal_address }}</p>
-        <p>{{user.street_address}}</p>
-        <p>{{user.city}}</p>
-        <p>{{user.zip_code}}</p>
-        <p>{{user.phone_number}}</p>
-        <img src={{user.profile_photo.url}}>
-    {% else %}
-        <p>You are not logged in</p>
-    {% endif %}
-    <hr>
+    <h1>Official Updates</h1>
+    <div class="updates">
+        <!-- Update samples -->
+        <div class="update">
+            <h3>Emergency Alert</h3>
+            <p><strong>Date:</strong> October 5, 2023</p>
+            <p><strong>Time:</strong> 9:00 AM</p>
+            <p>A state of emergency has been declared due to severe weather conditions. All residents are advised to stay indoors and take necessary precautions to ensure their safety.</p>
+        <div class="update">
+            <h3>Flooding Zones Update</h3>
+            <p><strong>Date:</strong> October 5, 2023</p>
+            <p><strong>Time:</strong> 10:00 AM</p>
+            <p>The government has identified several new flooding zones due to the recent heavy rains. Residents in the affected areas are advised to evacuate immediately and seek shelter in designated safe zones.</p>
+        </div>
+        <div class="update">
+            <h3>Power Outage Notice</h3>
+            <p><strong>Date:</strong> October 5, 2023</p>
+            <p><strong>Time:</strong> 11:30 AM</p>
+            <p>Due to severe weather conditions, there are widespread power outages in the northern region. Repair crews are working diligently to restore power. Please stay tuned for further updates.</p>
+        </div>
+    </div>
 {% endblock content %}
     
 
