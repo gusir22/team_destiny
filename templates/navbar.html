@@ -1,8 +1,10 @@
 <!-- templates/navbar.html -->
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="{% url 'home' %}">DESTINY</a></li>
+        <li><a href="{% url 'login' %}">Sign Up/Login</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
     </ul>
 </nav>
