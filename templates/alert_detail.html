@@ -28,6 +28,7 @@
     {% if user.is_authenticated %}
         {% if user|in_group:"Responder"%}
             <a href="{% url 'alert_update_create' alert.pk %}">Create Alert Update</a>
+            <a href="{% url 'alert_edit' alert.pk %}">Edit Alert Details</a>
         {% endif %}
     {% endif %}
 

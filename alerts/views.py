@@ -38,6 +38,15 @@ class AlertCreateView(CreateView):
         return reverse_lazy('alert_detail', kwargs={'pk': self.object.pk})
     
     
+class AlertUpdateView(UpdateView):
+    model = Alert
+    template_name = 'alert_create.html'
+    form_class = AlertCreateForm
+    
+    def get_success_url(self):
+        return reverse_lazy('alert_detail', kwargs={'pk': self.object.pk})
+    
+    
 class AlertUpdateCreateView(CreateView):
     model = AlertUpdate
     template_name = 'alert_update_create.html'

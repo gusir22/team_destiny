@@ -13,6 +13,7 @@ class AlertCreateForm(forms.ModelForm):
             'title',
             'description',
             'status',
+            'affected_zip_code',
         ]
         
 
