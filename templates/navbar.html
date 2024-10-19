@@ -1,13 +1,20 @@
 <!-- templates/navbar.html -->
 {% load static %}
+{% load user_tags %}
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <nav>
     <ul>
         <li><a href="{% url 'home' %}">UnityBridge</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'profile' %}"><img src="https://www.reconnectwithnature.org/getmedia/6ae123ba-b242-45c3-b7d6-6906663cfe4b/Double-rainbow-Shutterstock.jpg?width=1500&height=1001&ext=.jpg" alt="Profile"></a></li>
+        <li><a href="{% url 'profile_list' %}"><img src="{{user.profile_photo.url}}" alt="Profile"></a></li>
+        <!-- Only Seen By Users in "Responder" Group -->
+        {% if request.user|in_group:"Responder"%}
+            <li><a href="{% url 'profile_list' %}">Profiles</a></li>
+        {% endif %}
+        <li><a href="{% url 'account_logout' %}">Log Out</a></li>
         {% else %}
-        <li><a href="{% url 'account_login' %}">Sign Up/Login</a></li>
+        <li><a href="{% url 'account_login' %}">Login</a></li>
+        <li><a href="{% url 'account_singup' %}">Sign Up</a></li>
         {% endif %}
     </ul>
 </nav>
