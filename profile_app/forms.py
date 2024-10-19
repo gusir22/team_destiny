@@ -1,8 +1,16 @@
 from django import forms
 
 from .models import (
-    Companion
+    Companion,
+    ProfilePage,
 )
+
+class ProfilePageCreateForm(forms.ModelForm):
+    class Meta:
+        model = ProfilePage
+        fields = [
+            'evacuation_status'
+        ]
 
 
 class CompanionCreateForm(forms.ModelForm):

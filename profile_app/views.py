@@ -15,6 +15,7 @@ from .models import (
 
 from .forms import (
     CompanionCreateForm,
+    ProfilePageCreateForm,
 )
 
 # Create your views here.
@@ -55,3 +56,12 @@ class CompanionCreateView(CreateView):
         profile = get_object_or_404(ProfilePage, id=self.kwargs['pk'])
         return reverse_lazy('profile_page', kwargs={'pk': profile.id})
     
+
+class ProfilePageUpdateView(UpdateView):
+    model = ProfilePage
+    context_object_name = "fred"
+    template_name = 'profile_edit.html'
+    form_class = ProfilePageCreateForm
+    
+    def get_success_url(self):
+        return reverse_lazy('profile_page', kwargs={'pk': self.object.id})
