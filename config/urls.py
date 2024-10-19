@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # User management
     path('', include('pages.urls')),  # Pages App
+    path('profile/', include('profile_app.urls')),  # Profile Page App
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
