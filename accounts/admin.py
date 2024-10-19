@@ -9,8 +9,8 @@ CustomUser = get_user_model()
 
 
 class CustomUserAdmin(UserAdmin):
-    add_form = CustomUserCreationForm
-    form = CustomUserChangeForm
+    # add_form = CustomUserCreationForm
+    # form = CustomUserChangeForm
     model = CustomUser
     list_display = [
         'email',
@@ -19,5 +19,10 @@ class CustomUserAdmin(UserAdmin):
         'first_name',
         'is_superuser',
     ]
+    fieldsets = (
+        (None, {
+            'fields': ('phone_number', 'street_address', 'city', 'zip_code', 'profile_photo',)
+        }),
+    )
 
 admin.site.register(CustomUser, CustomUserAdmin)

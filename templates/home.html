@@ -11,8 +11,16 @@
     <h1>Home Page</h1>
     {% if user.is_authenticated %}
         <p>Hi {{ user.email }}!</p>
+        <p>{{user.formal_address }}</p>
+        <p>{{user.street_address}}</p>
+        <p>{{user.city}}</p>
+        <p>{{user.zip_code}}</p>
+        <p>{{user.phone_number}}</p>
+        <img src={{user.profile_photo.url}}>
     {% else %}
         <p>You are not logged in</p>
     {% endif %}
     <hr>
 {% endblock content %}
+    
+
