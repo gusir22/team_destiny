@@ -3,3 +3,10 @@
     display: flex;
     gap: .5rem;
 }
+
+.radio_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
