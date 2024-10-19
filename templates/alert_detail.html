@@ -1,0 +1,13 @@
+<!-- templates/home.html -->
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}{{ alert.title }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ alert.title }}</h1>
+    <p>Created On: {{ alert.created }}
+    {% if alert.modified != alert.created %}
+        <p>Updated On: {{ alert.modified }}
+    {% endif %}
+{% endblock content %}

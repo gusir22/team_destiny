@@ -9,8 +9,8 @@
     <div class="updates">
         {% for alert in alerts %}
             <div class="update">
-                <h3>{{ alert.title }}</h3>
-                <p><strong>Date:</strong> {{ alert.created_at }}</p>
+                <h3><a href="{% url 'alert_detail' alert.pk %}">{{ alert.title }}</a></h3>
+                <p><strong>Date:</strong> {{ alert.created }}</p>
                 <p>{{ alert.description }}</p>
             </div>
         {% endfor %}

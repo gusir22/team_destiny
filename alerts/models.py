@@ -1,10 +1,13 @@
+from model_utils.models import TimeStampedModel
 from django.contrib.auth import get_user_model
 from django.db import models
+
+
 
 User = get_user_model()
 
 # Create your models here.
-class Alert(models.Model):
+class Alert(TimeStampedModel):
     title = models.TextField(max_length=150)
     description = models.TextField()
     STATUS = (
@@ -12,9 +15,6 @@ class Alert(models.Model):
         ("resolved", "Resolved"),
     )
     status = models.CharField(max_length=10, choices=STATUS, default="active")
-    
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
