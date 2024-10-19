@@ -11,6 +11,10 @@ class CustomUserCreationForm(UserCreationForm):
             'username',
             'first_name',
             'last_name',
+            'street_address',
+            'city',
+            'zip_code',
+            'phone_number',
         )
 
 
@@ -22,4 +26,8 @@ class CustomUserChangeForm(UserChangeForm):
             'username',
             'first_name',
             'last_name',
+            'street_address',
+            'city',
+            'zip_code',
+            'phone_number',
         )
