@@ -1,5 +1,15 @@
 /* static/css/base.css */
 
 h1 {
-    color: red;
+    color: black;
+}
+
+body {
+    background-color: #ABCC8F
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 960px;
 }

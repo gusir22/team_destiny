@@ -3,8 +3,11 @@
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <nav>
     <ul>
-        <li><a href="{% url 'home' %}">Unity Bridge</a></li>
-        <li><a href="{% url 'login' %}">Sign Up/Login</a></li>
+        <li><a href="{% url 'home' %}">UnityBridge</a></li>
+        {% if user.is_authenticated %}
         <li><a href="{% url 'profile' %}">Profile</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Sign Up/Login</a></li>
+        {% endif %}
     </ul>
 </nav>

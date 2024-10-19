@@ -1,5 +1,5 @@
 nav {
-    background-color: #333;
+    background-color: #2b2d30;
     color: white;
     padding: 10px;
     text-align: center;
@@ -8,9 +8,18 @@ nav {
 nav ul {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
