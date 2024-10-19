@@ -6,7 +6,7 @@
     <ul>
         <li><a href="{% url 'home' %}">UnityBridge</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'profile_list' %}"><img src="{{user.profile_photo.url}}" alt="Profile"></a></li>
+        <li><a href="{% url 'profile_page' user.id %}"><img src="{{user.profile_photo.url}}" alt="Profile"></a></li>
         <!-- Only Seen By Users in "Responder" Group -->
         {% if request.user|in_group:"Responder"%}
             <li><a href="{% url 'profile_list' %}">Profiles</a></li>
